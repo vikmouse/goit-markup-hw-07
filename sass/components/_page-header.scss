@@ -1,0 +1,12 @@
+.page-header {
+  border-bottom: 1px solid var(--border-card-color);
+}
+
+.page-header__container {
+  display: flex;
+  align-items: center;
+}
+
+.page-header__nav {
+  display: flex;
+}
