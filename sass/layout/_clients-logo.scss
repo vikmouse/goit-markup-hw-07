@@ -1,4 +1,3 @@
-
 .clients-logo {
   display: flex;
   list-style: none;
@@ -6,17 +5,12 @@
 
 .clients-logo__item {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-}
-
-.clients-logo__item:hover,
-.clients-logo__item:focus {
-  color: var(--client-second-color);
-}
-
-.clients-logo__item:not(:last-child) {
-  margin-right: 30px;
+  @include align() &: hover, &: focus {
+    color: var(--client-second-color);
+  }
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
 .clients-logo__link {

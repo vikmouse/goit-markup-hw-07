@@ -3,8 +3,7 @@
 }
 
 .page-header__container {
-  display: flex;
-  align-items: center;
+  @include align();
 }
 
 .page-header__nav {

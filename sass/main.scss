@@ -1,7 +1,9 @@
 @import './utils/vars';
 @import './base/reset';
+@import './utils/mixin';
 @import './utils/hidden';
 @import './base/common';
+@import './components/social-set';
 
 @import './components/container';
 @import './components/section';
@@ -22,7 +24,7 @@
 @import './layout/direction-list';
 
 @import './components/card-set';
-@import './components/social-set';
+
 
 @import './layout/clients-logo';
 

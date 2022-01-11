@@ -9,19 +9,18 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
 }
 
-
-.backdrop.is-hidden .modal {
-  transform: scale(2) rotateZ(180deg) translateY(-500px);
-  transition: transform 1000ms;
+.backdrop.is-hidden {
+  .modal {
+    transform: scale(2) rotateZ(180deg) translateY(-500px);
+    transition: transform 1000ms;
+  }
 }
-
 
 .modal {
   position: absolute;
@@ -39,7 +38,6 @@
   border-radius: 4px;
 }
 
-
 .modal-title {
   margin-bottom: 12px;
   font-family: Roboto;
@@ -49,36 +47,27 @@
   text-align: center;
 }
 
-
 .modal__form {
-  margin-left: auto;
-  margin-right: auto;
+  @include margin();
 }
-
 
 .modal__button {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px; 
+  @include margin();
+  margin-top: 30px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: #188ce8;
+  }
 }
-
-
-.modal__button:hover,
-.modal__button:focus {
-  background-color: #188ce8;
-}
-
 
 .form-group {
-
   font-family: Roboto;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: #757575;
 }
-
 
 .textarea {
   font-family: Roboto;
@@ -88,17 +77,17 @@
   color: #757575;
 }
 
+.form__form-group {
+  margin-bottom: 10px;
+}
 
-.form__form-group { margin-bottom: 10px; }
-
-
-.form__textarea { margin-bottom: 20px; }
-
+.form__textarea {
+  margin-bottom: 20px;
+}
 
 .input-wrapp {
   position: relative;
 }
-
 
 .form-group__icon {
   position: absolute;
@@ -107,7 +96,6 @@
   transform: translateY(-50%);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 
 .form-group__label {
   display: block;
@@ -119,7 +107,6 @@
   color: #757575;
 }
 
-
 .form-group__input {
   width: 448px;
   height: 40px;
@@ -130,27 +117,21 @@
   border-radius: 4px;
   outline: none;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus {
+    border-color: var(--accent-color);
+  }
+  &:focus + .form-group__icon {
+    fill: var(--accent-color);
+  }
 }
-
-
-.form-group__input:focus {
-  border-color: var(--accent-color);
-}
-
-
-.form-group__input:focus + .form-group__icon {
-  fill: var(--accent-color);
-}
-
 
 .form__checkbox {
   margin-bottom: 30px;
 }
 
-
 .checkbox__label {
   display: flex;
-  
+
   align-items: center;
   justify-content: center;
 
@@ -160,15 +141,13 @@
   color: #757575;
 }
 
-
-.checkbox__icon { fill: #ffffff; }
-
+.checkbox__icon {
+  fill: #ffffff;
+}
 
 .checkbox__item {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include align() justify-content: center;
   width: 16px;
   height: 15px;
   border: 1px solid #000;
@@ -177,22 +156,20 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-.checkbox__input:checked + .checkbox__label .checkbox__item {
-  background-color: #2196f3;
-  border: none;
+.checkbox__input:checked + .checkbox__label {
+  .checkbox__item {
+    background-color: #2196f3;
+    border: none;
+  }
 }
 
-
 .checkbox__link {
-  
   margin-left: 4px;
   font-family: Roboto;
   font-size: 14px;
   line-height: 1.71;
   color: var(--accent-color);
 }
-
 
 .comment {
   padding: 12px 16px;
@@ -201,25 +178,20 @@
   resize: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
+  &::placeholder {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: rgba(117, 117, 117, 0.5);
+  }
 }
-
-
-.comment::placeholder {
-  font-family: Roboto;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
-  color: rgba(117, 117, 117, 0.5);
-}
-
 
 .modal-close {
   position: absolute;
   top: 8px;
   right: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include align() justify-content: center;
   width: 30px;
   height: 30px;
   background-color: transparent;
@@ -228,14 +200,11 @@
   cursor: pointer;
 }
 
-
 .modal-close__icon {
   display: block;
   margin: 0;
-}
-
-
-.modal-close__icon:hover,
-.modal-close__icon:focus {
-  fill: var(--accent-color);
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
 }
